@@ -1,31 +1,36 @@
-Análise de Churn - TelecomX 📊
-Este projeto faz parte de um desafio de Ciência de Dados focado em identificar padrões de evasão de clientes em uma empresa de telecomunicações. O objetivo é transformar dados brutos de uma API em insights estratégicos para retenção.
+# Projeto ETL e Análise de Churn - TelecomX
 
-🛠️ O que foi feito
-O projeto seguiu as etapas principais de um pipeline de dados:
+Este projeto aplica técnicas de ETL (Extract, Transform, Load) e Análise Exploratória de Dados em um dataset de telecomunicações. O objetivo principal é identificar os fatores que levam os clientes a cancelarem seus serviços (Churn).
 
-Extração e Normalização: Leitura de arquivos JSON aninhados e transformação em um DataFrame Pandas estruturado.
+## 🚀 Etapas do Projeto
 
-Limpeza de Dados: Tratamento de valores nulos, conversão de tipos (strings para numéricos) e remoção de inconsistências.
+### 1. Extração e Tratamento (Pandas I/O & Transformação)
+- Ingestão de dados diretamente de uma API via URL.
+- **Normalização de JSON**: Expansão de dicionários aninhados em colunas individuais.
+- **Limpeza**: Conversão de tipos de dados (strings para numéricos) e tratamento de valores nulos e vazios.
+- **Codificação**: Transformação de variáveis categóricas (Sim/Não) em binárias (1/0) para análise estatística.
 
-Engenharia de Variáveis: Criação de métricas personalizadas (como Gastos Diários) utilizando NumPy para otimizar os cálculos.
+### 2. Análise Numérica (NumPy)
+- Utilização do **NumPy** para cálculos eficientes.
+- Criação da métrica `Contas_Diarias`, calculando o gasto proporcional por dia de serviço.
 
-Análise Exploratória (EDA): Visualização de dados com Matplotlib e Seaborn para cruzar variáveis demográficas e financeiras com a taxa de cancelamento.
+### 3. Visualização de Dados (Matplotlib & Seaborn)
+- Análise da distribuição da variável alvo (Churn).
+- Cruzamento de dados categóricos (Contratos, Métodos de Pagamento, Serviços).
+- Análise de variáveis numéricas (Tenure e Monthly Charges) para identificar padrões de comportamento.
 
-📈 Principais Insights
-Contratos: Clientes com contratos mensais são os que mais saem.
+## 📊 Principais Insights
+- **Retenção inicial:** Clientes com menos de 6 meses de casa possuem a maior taxa de evasão.
+- **Tipo de Contrato:** Planos mensais (Month-to-month) são os principais responsáveis pelo Churn.
+- **Custo:** Clientes que cancelam geralmente possuem faturas mensais mais elevadas que a média da base.
 
-Tempo de Casa: O risco de evasão é crítico nos primeiros meses de assinatura.
+## 🛠️ Tecnologias
+- Python 3.x
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
 
-Serviços: Clientes de fibra óptica possuem uma taxa de churn acima da média.
-
-Financeiro: Faturas mensais mais altas estão diretamente ligadas a uma maior probabilidade de cancelamento.
-
-🚀 Tecnologias Utilizadas
-Python 3
-
-Pandas: Manipulação e tratamento.
-
-NumPy: Cálculos matemáticos.
-
-Matplotlib & Seaborn: Visualização de dados.
+## 📂 Como executar
+1. Instale as dependências: `pip install pandas numpy matplotlib seaborn`
+2. Execute o notebook `desafio_telecom.ipynb`
